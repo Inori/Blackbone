@@ -199,7 +199,12 @@ call_result_t<ModuleDataPtr> MMap::MapImageInternal(
 
             // Don't run initializer for pure IL dlls
             if (!img->peImage.pureIL() || img->peImage.isExe())
-                status = RunModuleInitializers( img, DLL_PROCESS_ATTACH, pCustomArgs ).status;
+			{
+				if (!(flags & NoExecute))
+                {
+					status = RunModuleInitializers(img, DLL_PROCESS_ATTACH, pCustomArgs).status;
+                }
+			}
 
             if (!NT_SUCCESS( status ))
             {
@@ -526,7 +531,10 @@ NTSTATUS MMap::UnmapAllModules()
         BLACKBONE_TRACE( L"ManualMap: Unmapping image '%ls'", pImage->ldrEntry.name.c_str() );
 
         // Call main
-        RunModuleInitializers( pImage, DLL_PROCESS_DETACH );
+        if (!(pImage->flags & NoExecute))
+        {
+			RunModuleInitializers(pImage, DLL_PROCESS_DETACH);
+        }
 
         // Remove VEH
         if (!(pImage->flags & NoExceptions))

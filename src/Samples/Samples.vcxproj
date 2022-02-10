@@ -185,6 +185,7 @@
     <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <IncludePath>$(SolutionDir)Detours\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug(XP)|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -202,6 +203,8 @@
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)64</TargetName>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <IncludePath>$(SolutionDir)Detours\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Detours\lib.X64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug(XP)|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -219,6 +222,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)Detours\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release(XP)|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -235,6 +239,8 @@
     <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)64</TargetName>
+    <IncludePath>$(SolutionDir)Detours\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Detours\lib.X64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release(XP)|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -265,7 +271,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <FunctionOrder>
       </FunctionOrder>
       <Profile>false</Profile>
@@ -293,7 +299,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <FunctionOrder>
       </FunctionOrder>
       <Profile>false</Profile>
@@ -320,7 +326,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <FunctionOrder>
       </FunctionOrder>
       <Profile>false</Profile>
@@ -348,7 +354,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
@@ -374,7 +380,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
       <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
@@ -399,7 +405,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
       <DataExecutionPrevention>false</DataExecutionPrevention>
     </Link>
@@ -431,7 +437,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
@@ -461,7 +467,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
@@ -491,7 +497,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
@@ -518,7 +524,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
@@ -545,7 +551,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
@@ -572,7 +578,7 @@
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>mscoree.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mscoree.lib;dbghelp.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
